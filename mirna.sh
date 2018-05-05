@@ -23,10 +23,10 @@ do
 	name=$(basename "$f" | cut -d. -f1)
 	echo "$fbname"
 	# FASTQ -> FASTA
-	# Remove adapter + everything following
-	# discard sequences shorter than 18 nucleotides
-	# keep only sequences which contained the adapter
-	# discard sequences longer than 25 nucleotides
+	# Remove adapter + everything following.
+	# Discard sequences shorter than 18 nucleotides.
+	# Keep only sequences which contained the adapter.
+	# Discard sequences longer than 25 nucleotides.
 	zcat $f | fastq_to_fasta | fastx_clipper -a "AGATCGGAAG" -l 18 -c | fastx_trimmer -l 25 | fastx_collapser -o $name.fasta
 	# sRNAbench
 	java -Xms20m -Xmx14900m -jar $home/exec/sRNAbench.jar input=$name.fasta output=${name}.out dbPath=$home graphics=true sep="-" microRNA=hsa species=hg38 mature=mature.fa hairpin=hairpin.fa
