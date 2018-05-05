@@ -18,10 +18,9 @@ module load fastx_toolkit-0.0.14
 home=/gpfs/hpchome/ppaluoja/software/sRNAtoolboxDB
 export PATH="${PATH}:$home/exec/bowtie-1.2.2-linux-x86_64"
 
-for f in *.collapsed.fasta
+for f in *.gz
 do
 	name=$(basename "$f" | cut -d. -f1)
-	echo "$fbname"
 	# FASTQ -> FASTA
 	# Remove adapter + everything following.
 	# Discard sequences shorter than 18 nucleotides.
@@ -29,5 +28,5 @@ do
 	# Discard sequences longer than 25 nucleotides.
 	zcat $f | fastq_to_fasta | fastx_clipper -a "AGATCGGAAG" -l 18 -c | fastx_trimmer -l 25 | fastx_collapser -o $name.fasta
 	# sRNAbench
-	java -Xms20m -Xmx14900m -jar $home/exec/sRNAbench.jar input=$name.fasta output=${name}.out dbPath=$home graphics=true sep="-" microRNA=hsa species=hg38 mature=mature.fa hairpin=hairpin.fa
+	java -Xms20m -Xmx14900m -jar $home/exec/sRNAbench.jar input=$name.fasta output=$name.out dbPath=$home graphics=true sep="-" microRNA=hsa species=hg38 mature=mature.fa hairpin=hairpin.fa
 done
