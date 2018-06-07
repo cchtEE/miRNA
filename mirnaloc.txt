@@ -1,0 +1,2 @@
+/gpfs/rocket/samba/CCHT/mirna30.04.2018/TAC-seq-data-analysis/old/Data/Intensities/BaseCalls/BC10_S10_R1_001.fastq.gz
+/gpfs/rocket/samba/CCHT/mirna30.04.2018/TAC-seq-data-analysis/old/Data/Intensities/BaseCalls/BC11_S11_R1_001.fastq.gz
