@@ -26,7 +26,7 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
 	java -Xms20m -Xmx10000m -jar $home/exec/sRNAbench.jar input=$sample.fasta output=$sample.out predict=true isoMiR=true dbPath=$home graphics=true sep="-" microRNA=hsa species=hg38 mature=mature.fa hairpin=hairpin.fa libs=hg38_prim_ncRNA libs=hg38_prim_RNAcentral libs=hg38_prim_cdna 
 	# Move important files away Make copy of the results
 	mkdir $sample.results
-	cp $(find $sample.out -name "results.txt" -o -name "novel.txt" -o -name "novel_mature.fa" -o -name "mature_sense_SA.grouped" -o -name "novel_hairpin.fa" -o -name  "microRNAannotation.txt" -o -name "mature.iso" -o -name "mappingStat.txt" -o -name "isomiR_summary.txt" -o -name "mature_sense.grouped" -o -name "logFile.txt") $sample.results
+	cp $(find $sample.out -name "results.txt" -o -name "novel.txt" -o -name "novel_mature.fa" -o -name "mature_sense_SA.grouped" -o -name "novel_hairpin.fa" -o -name  "microRNAannotation.txt" -o -name "mature.iso" -o -name "mappingStat.txt" -o -name "isomiR_summary.txt" -o -name "hg38_prim_RNAcentral_sense_SA.grouped" -o -name "logFile.txt") $sample.results
 	# Cleanup
 	#rm -rf $sample.out &
 done < "$1"
