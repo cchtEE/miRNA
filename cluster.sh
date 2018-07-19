@@ -3,7 +3,7 @@
 module load java-1.8.0_40
 module load python-3.6.3
 
-source activate rna # edgeR, DEseq, NOISeq, Viennarna
+source activate rna # edgeR, DEseq, NOISeq, Viennarna, xlsx
 
 home=/gpfs/hpchome/ppaluoja/software/sRNAtoolboxDB
 export PATH="${PATH}:$home/exec/bowtie-1.2.2-linux-x86_64"
