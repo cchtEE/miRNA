@@ -1,7 +1,6 @@
 #!/bin/sh
 
 module load java-1.8.0_40
-module load viennarna-2.8.1
 module load python-3.6.3
 
 source activate rna # edgeR, DEseq, NOISeq, Viennarna
